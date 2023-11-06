@@ -2,6 +2,19 @@ variable "prefix" {
   default = ""
 }
 
+variable "region" {
+  description = "OCI Region to deploy into"
+  type        = string
+}
+
+variable "bastion_ocid" {
+  description = "(Required) OCID of OCI Bastion instance, required for creating MySQL schema."
+}
+
+variable "mysql_schema_name" {
+  description = "(Required) Name of MySQL database schema"
+}
+
 variable "mysql_instance_compartment_ocid" {
   description = "(Required) OCID of the compartment where MySQL Instance will be created"
 }
@@ -39,7 +52,7 @@ variable "mysql_db_system_backup_policy_window_start_time" {
 
 variable "mysql_db_system_data_storage_size_in_gb" {
   description = "Initial size of the data volume in GiBs that will be created and attached."
-  default     = "1024"
+  default     = "50"
 }
 
 variable "mysql_db_system_defined_tags" {
@@ -54,7 +67,7 @@ variable "mysql_db_system_description" {
 
 variable "mysql_db_system_display_name" {
   description = "The user-friendly name for the DB System. It does not have to be unique."
-  default     = "mysql_heatwave"
+  default     = "mysql_db_system"
 }
 
 variable "mysql_db_system_freeform_tags" {
@@ -84,5 +97,5 @@ variable "mysql_db_system_port_x" {
 
 variable "mysql_shape_name" {
   description = "(Required) The name of the shape. The shape determines the resources allocated. CPU cores and memory for VM shapes; CPU cores, memory and storage for non-VM (or bare metal) shapes. To get a list of shapes, use the ListShapes operation."
-  default     = "MySQL.HeatWave.VM.Standard"
+  default     = "MySQL.VM.Standard.E4.1.8GB"
 }

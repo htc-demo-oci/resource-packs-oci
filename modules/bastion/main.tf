@@ -1,5 +1,5 @@
 resource "oci_bastion_bastion" "bastion" {
-  bastion_type                 = "standard"
+  bastion_type                 = "STANDARD"
   compartment_id               = var.bastion_compartment_ocid
   target_subnet_id             = var.bastion_target_subnet_ocid
   name                         = "${var.prefix}${var.bastion_name}"

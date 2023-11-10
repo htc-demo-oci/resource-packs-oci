@@ -43,7 +43,7 @@ resource "oci_bastion_session" "mysql_session" {
 
 resource "local_sensitive_file" "sessionkey" {
   content         = tls_private_key.bastion_public_private_key_pair.private_key_openssh
-  filename        = ".bastion-session-key"
+  filename        = ".bastion-session-key-${sha256(path.module)}"
   file_permission = "0400"
 }
 

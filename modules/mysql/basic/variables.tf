@@ -3,7 +3,7 @@ variable "prefix" {
 }
 
 variable "region" {
-  description = "OCI Region to deploy into"
+  description = "(Required) OCI Region to deploy into"
   type        = string
 }
 
@@ -98,4 +98,22 @@ variable "mysql_db_system_port_x" {
 variable "mysql_shape_name" {
   description = "(Required) The name of the shape. The shape determines the resources allocated. CPU cores and memory for VM shapes; CPU cores, memory and storage for non-VM (or bare metal) shapes. To get a list of shapes, use the ListShapes operation."
   default     = "MySQL.VM.Standard.E4.1.8GB"
+}
+
+# Variables needed for OCI provider authentication
+variable "tenancy_ocid" {
+  description = "(Required) Tenancy OCID"
+  type        = string
+}
+variable "user_ocid" {
+  description = "(Required) User OCID"
+  type        = string
+}
+variable "fingerprint" {
+  description = "(Required) Fingerprint"
+  type        = string
+}
+variable "private_key" {
+  description = "(Required) Private key used for authentication"
+  type        = string
 }
